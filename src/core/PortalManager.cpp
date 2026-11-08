@@ -511,6 +511,7 @@ void CPortalManager::startEventLoop() {
     m_sPortals.screenshot.reset();
     m_sHelpers.toplevel.reset();
     m_sHelpers.toplevelMapping.reset();
+    m_sHelpers.workspaceTracker.reset();
     m_sPortals.inputCapture.reset();
 
     m_pConnection.reset();
@@ -602,6 +603,8 @@ void CPortalManager::removeFdFromEventLoop(int fd) {
 
 void CPortalManager::releaseWayland() {
     m_vOutputs.clear();
+    m_sWaylandConnection.workspaceSource.reset();
+    m_sWaylandConnection.icc.reset();
     m_sWaylandConnection.linuxDmabufFeedback.reset();
     m_sWaylandConnection.linuxDmabuf.reset();
     m_sWaylandConnection.hyprlandToplevelMgr.reset();
